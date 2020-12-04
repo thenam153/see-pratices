@@ -1,0 +1,16 @@
+{
+    "application" : {
+        "port": 3000
+    }, 
+    "database": {
+        "dbName": "see",
+        "dbHost": "mysql",
+        "dbPort": 3306,
+        "dbUser": "root",
+        "dbPassword": "root",
+        "logging": false,
+        "dialect": "mysql"
+    },
+    "secret" : "nam-hash",
+    "pathImage": "/images/"
+}

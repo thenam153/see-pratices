@@ -1,0 +1,40 @@
+version: '3.8'
+services:
+  app:
+    build: ./
+    # image: see
+    ports:
+      - "3000:3000"
+      - "2999:2999"
+    command: node app.js
+    volumes:
+      - ./:/app
+    depends_on:
+      - db
+      - redis
+    links:
+      - db:mysql
+      - redis
+  db:
+    image: mysql:5.5
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: "${MYSQL_ROOT_PASSWORD}"
+      MYSQL_USER: "${MYSQL_USER}"
+      MYSQL_PASSWORD: "${MYSQL_PASSWORD}"
+      MYSQL_DATABASE: "${MYSQL_DATABASE}"
+    volumes:
+      - mysql:/var/lib/mysql
+  redis:
+    image: redis:latest
+    volumes:
+      - redis:/data
+volumes:
+  mysql:
+    driver: local
+  redis:
+    driver: local
+
+
+

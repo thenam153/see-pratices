@@ -1,0 +1,3 @@
+[submodule "client"]
+	path = client
+	url = https://gitlab.com/thenam153/see-client
